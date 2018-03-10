@@ -1,0 +1,14 @@
+{
+  "name": "io.dueltoken.ico",
+  "version": "1.0.0",
+  "description": "The dueltoken.io ICO project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dueltoken.io team",
+  "license": "ISC",
+  "dependencies": {
+    "truffle-hdwallet-provider": "0.0.3"
+  }
+}
