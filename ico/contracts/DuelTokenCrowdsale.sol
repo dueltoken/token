@@ -40,7 +40,7 @@ contract DuelTokenCrowdsale is Ownable, AddressWhitelist {
     function() external payable {
         require(tx.gasprice <= maxGasPrice);
         require(msg.data.length == 0);
-        buyDIMITRItokens();
+        buyDuelTokens();
     }
 
     function refund() external {
@@ -78,7 +78,7 @@ contract DuelTokenCrowdsale is Ownable, AddressWhitelist {
         maxGasPrice = _newGasPrice;
     }
 
-    function buyDIMITRItokens() public payable {
+    function buyDuelTokens() public payable {
         require(!(msg.value == 0));
         require(isCrowdSaleSetup);
         require(getCurrentPhase() != IcoPhase.Closed);
