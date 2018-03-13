@@ -177,6 +177,14 @@ contract DuelTokenCrowdsale is Ownable, AddressWhitelist {
         duelToken.enableTrading();
     }
 
+    function pause() public onlyOwner {
+        duelToken.pause();
+    }
+
+    function unpause() public onlyOwner {
+        duelToken.unpause();
+    }
+
     function calculateAmountOfBaseTokensForWeiValue(uint256 ethPayedInWei) private view returns (uint256) {
         uint256 tokensPerEthWithBonus = baseTokensPerEth.add(getBonusPrice());
         return ethPayedInWei.mul(tokensPerEthWithBonus).div(10**18);
