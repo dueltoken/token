@@ -23,7 +23,7 @@ contract DuelTokenCrowdsale is Ownable, AddressWhitelist {
     uint256 public baseTokensPerEth = duel(12000);
 
     uint256 public amountRaisedInWei = 0;
-    uint256 public softCapInWei = 0.5 ether;
+    uint256 public softCapInWei = 2000 ether;
 
     uint256 public icoStartTimestamp;
     bool    public isCrowdSaleSetup = false;
@@ -81,7 +81,7 @@ contract DuelTokenCrowdsale is Ownable, AddressWhitelist {
         require(msg.data.length == 0);
         require(!(msg.value == 0));
         require(isCrowdSaleSetup);
-        require(getCurrentPhase() != IcoPhase.Closed);
+        require(icoOngoing());
         require(tokensRemaining > 0);
 
         if (getCurrentPhase() == IcoPhase.PreSale) {
